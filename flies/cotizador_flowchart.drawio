@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-11-27T02:03:32.861Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0" etag="rSd9nez37SCQoQUCFksm" version="22.1.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-11-27T02:15:16.580Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0" etag="xqTpHveIg8Q0qXBWPHeq" version="22.1.4" type="github">
   <diagram id="6a731a19-8d31-9384-78a2-239565b7b9f0" name="Page-1">
-    <mxGraphModel dx="2049" dy="1074" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1195" dy="627" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -74,19 +74,33 @@
         <mxCell id="vPjzms_0MhAwihhRe5IF-80" value="" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/documents.svg;" parent="1" vertex="1">
           <mxGeometry x="119.39999999999998" y="248" width="52.8" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="vPjzms_0MhAwihhRe5IF-90" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="vPjzms_0MhAwihhRe5IF-88" target="vPjzms_0MhAwihhRe5IF-89" edge="1">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="vPjzms_0MhAwihhRe5IF-90" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.03;exitY=0.004;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.48;entryY=0.913;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="vPjzms_0MhAwihhRe5IF-88" target="vPjzms_0MhAwihhRe5IF-89" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="698" y="360" />
+            </Array>
+          </mxGeometry>
         </mxCell>
-        <mxCell id="vPjzms_0MhAwihhRe5IF-91" value="Pide lista de autos a infoautos" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="vPjzms_0MhAwihhRe5IF-90" vertex="1" connectable="0">
+        <mxCell id="vPjzms_0MhAwihhRe5IF-91" value="&lt;div&gt;Pide lista de autos &lt;br&gt;&lt;/div&gt;&lt;div&gt;a&amp;nbsp;&lt;/div&gt;&lt;div&gt;infoautos&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="vPjzms_0MhAwihhRe5IF-90" vertex="1" connectable="0">
           <mxGeometry x="-0.0154" y="1" relative="1" as="geometry">
-            <mxPoint x="-1" as="offset" />
+            <mxPoint x="2" y="-32" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xq3g18Y40wFkUa4o3chr-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="Xq3g18Y40wFkUa4o3chr-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="801" y="360" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xq3g18Y40wFkUa4o3chr-8" value="&lt;div&gt;Pide provincias &lt;br&gt;&lt;/div&gt;&lt;div&gt;a&lt;/div&gt;&lt;div&gt;Adminse&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Xq3g18Y40wFkUa4o3chr-6">
+          <mxGeometry x="0.5353" y="1" relative="1" as="geometry">
+            <mxPoint y="-2" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="vPjzms_0MhAwihhRe5IF-88" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.form;" parent="1" vertex="1">
           <mxGeometry x="761" y="360" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="vPjzms_0MhAwihhRe5IF-89" value="" style="sketch=0;html=1;dashed=0;whitespace=wrap;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];verticalLabelPosition=bottom;align=center;verticalAlign=top;shape=mxgraph.kubernetes.icon;prIcon=api" parent="1" vertex="1">
-          <mxGeometry x="762.31" y="200" width="80" height="92" as="geometry" />
+          <mxGeometry x="660" y="200" width="80" height="92" as="geometry" />
         </mxCell>
         <mxCell id="vPjzms_0MhAwihhRe5IF-97" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="vPjzms_0MhAwihhRe5IF-88" target="vPjzms_0MhAwihhRe5IF-96" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -125,6 +139,20 @@
         </mxCell>
         <mxCell id="vPjzms_0MhAwihhRe5IF-103" value="" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/database.svg;" parent="1" vertex="1">
           <mxGeometry x="997" y="645" width="80" height="59.2" as="geometry" />
+        </mxCell>
+        <mxCell id="Xq3g18Y40wFkUa4o3chr-3" value="" style="sketch=0;html=1;dashed=0;whitespace=wrap;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];verticalLabelPosition=bottom;align=center;verticalAlign=top;shape=mxgraph.kubernetes.icon;prIcon=api" vertex="1" parent="1">
+          <mxGeometry x="760" y="156" width="80" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="Xq3g18Y40wFkUa4o3chr-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.521;entryY=0.934;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="vPjzms_0MhAwihhRe5IF-88" target="Xq3g18Y40wFkUa4o3chr-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xq3g18Y40wFkUa4o3chr-7" value="&lt;div&gt;Pide localidades&lt;/div&gt;&lt;div&gt;a&lt;/div&gt;&lt;div&gt;Adminse&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Xq3g18Y40wFkUa4o3chr-4">
+          <mxGeometry x="0.0796" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xq3g18Y40wFkUa4o3chr-5" value="" style="sketch=0;html=1;dashed=0;whitespace=wrap;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];verticalLabelPosition=bottom;align=center;verticalAlign=top;shape=mxgraph.kubernetes.icon;prIcon=api" vertex="1" parent="1">
+          <mxGeometry x="850" y="200" width="80" height="92" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
