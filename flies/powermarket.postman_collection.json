@@ -1,0 +1,478 @@
+{
+	"info": {
+		"_postman_id": "4d22e57a-5213-4355-868c-33573dacae4d",
+		"name": "Powermarket",
+		"description": "La variable coti-host es [https://cotizador-adminse.com.ar:9443/](https://cotizador-adminse.com.ar:9443/)\n\nEn el login se genera el token que deben adjuntar en los requests de cotización (en el postman se está cargando automáticamente pero deben hacerlo específicamente en la implementación).\n\nLa estructura del request y response es la misma para todas las compañías, excepto por los parámetros propios de cada compañía, que son los que tienen prefijo con nombre de la compañía.\n\n\"Infoauto_id\" e \"infoauto_anio\" son datos que se obtienen de la API de Infoauto.\n\nLos parámetros de los request de cotización estan auto documentados en la columna \"descripción\" dentro del postman.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5319575"
+	},
+	"item": [
+		{
+			"name": "usuarios",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"console.log(responseBody);",
+									"postman.setEnvironmentVariable(\"powermarket.token\", jsonData.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"info@powermarket.com\",\n\t\"password\" : \"power2025\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{coti-host}}/api/auth/login",
+							"host": [
+								"{{coti-host}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "mandás credenciales y te logueás. hopefullly"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "datos generales",
+			"item": [
+				{
+					"name": "provincias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "adminse.com.ar/api/provinces",
+							"host": [
+								"adminse",
+								"com",
+								"ar"
+							],
+							"path": [
+								"api",
+								"provinces"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "locations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "adminse.com.ar/api/provinces/2/locations",
+							"host": [
+								"adminse",
+								"com",
+								"ar"
+							],
+							"path": [
+								"api",
+								"provinces",
+								"2",
+								"locations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "allianz",
+			"item": [
+				{
+					"name": "cotizar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{powermarket.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{coti-host}}/api/cotizador?allianz_clausula_ajuste=20&allianz_granizo=1&allianz_mediopago=T&allianz_periodo=S&allianz_tiene_alarma=0&brand_id=045&cia=allianz&client_dni=11111111&client_tipo_doc=dni&codigo_cia=0036&codigo_postal=2000&es_0km=0&fecha_nacimiento=1980-01-01&infoauto_id=0450246&is_moto=0&provincia=21&sexo=MALE&suma_asegurada=0&tipo_uso=1&value=allianz&infoauto_anio=2016&producer_profile_id=3262&producer_id=932&origen=powermarket",
+							"host": [
+								"{{coti-host}}"
+							],
+							"path": [
+								"api",
+								"cotizador"
+							],
+							"query": [
+								{
+									"key": "allianz_clausula_ajuste",
+									"value": "20",
+									"description": "0/10/20/30"
+								},
+								{
+									"key": "allianz_granizo",
+									"value": "1",
+									"description": "0/1"
+								},
+								{
+									"key": "allianz_mediopago",
+									"value": "T",
+									"description": "T: Tarjeta, E: Efectivo"
+								},
+								{
+									"key": "allianz_periodo",
+									"value": "S",
+									"description": "S/M/A"
+								},
+								{
+									"key": "allianz_tiene_alarma",
+									"value": "0",
+									"description": "0/1"
+								},
+								{
+									"key": "brand_id",
+									"value": "045",
+									"description": "/datos generales/auto marcas"
+								},
+								{
+									"key": "cia",
+									"value": "allianz",
+									"description": "fijo"
+								},
+								{
+									"key": "client_dni",
+									"value": "11111111",
+									"description": "numero de documento (requerido)"
+								},
+								{
+									"key": "client_tipo_doc",
+									"value": "dni",
+									"description": "dni/cuit"
+								},
+								{
+									"key": "codigo_cia",
+									"value": "0036",
+									"description": "fijo"
+								},
+								{
+									"key": "codigo_postal",
+									"value": "2000"
+								},
+								{
+									"key": "es_0km",
+									"value": "0",
+									"description": "0/1"
+								},
+								{
+									"key": "fecha_nacimiento",
+									"value": "1980-01-01"
+								},
+								{
+									"key": "infoauto_id",
+									"value": "0450246",
+									"description": "/datos generales/auto modelos"
+								},
+								{
+									"key": "is_moto",
+									"value": "0",
+									"description": "0/1"
+								},
+								{
+									"key": "provincia",
+									"value": "21",
+									"description": "/datos generales/provincias"
+								},
+								{
+									"key": "sexo",
+									"value": "MALE",
+									"description": "MALE/FEMALE/JURIDIC"
+								},
+								{
+									"key": "suma_asegurada",
+									"value": "0",
+									"description": "0: default en compañia"
+								},
+								{
+									"key": "tipo_uso",
+									"value": "1",
+									"description": "1: Particular, 2: Comercial"
+								},
+								{
+									"key": "value",
+									"value": "allianz",
+									"description": "fijo"
+								},
+								{
+									"key": "infoauto_anio",
+									"value": "2016",
+									"description": "/datos generales/auto años"
+								},
+								{
+									"key": "producer_profile_id",
+									"value": "3262",
+									"description": "fijo"
+								},
+								{
+									"key": "producer_id",
+									"value": "932",
+									"description": "fijo"
+								},
+								{
+									"key": "origen",
+									"value": "powermarket"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "integrity",
+			"item": [
+				{
+					"name": "cotizar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{powermarket.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{coti-host}}/api/cotizador?cia=integrity&client_dni=11111111&client_tipo_doc=dni&codigo_cia=0036&codigo_postal=2000&es_0km=0&fecha_nacimiento=1980-01-01&is_moto=0&origen=powermarket&provincia=1&sexo=MALE&suma_asegurada=0&tipo_uso=1&year=2016&infoauto_id=0450246&producer_profile_id=1381&producer_id=932&integrity_alarma=NO&integrity_asistencia=0&integrity_clausula_ajuste=1&integrity_comision=0029&integrity_cuotas=3&integrity_forma_pago=1004&integrity_garage=NO&integrity_localidad=001368&integrity_porc_dto=0&integrity_uso_social=NO&integrity_vigencia=109&integrity_vlh=NO&integrity_adicionales=%255B%255D",
+							"host": [
+								"{{coti-host}}"
+							],
+							"path": [
+								"api",
+								"cotizador"
+							],
+							"query": [
+								{
+									"key": "cia",
+									"value": "integrity",
+									"description": "fijo"
+								},
+								{
+									"key": "client_dni",
+									"value": "11111111",
+									"description": "numero de documento (requerido)"
+								},
+								{
+									"key": "client_tipo_doc",
+									"value": "dni",
+									"description": "dni/cuit"
+								},
+								{
+									"key": "codigo_cia",
+									"value": "0036",
+									"description": "fijo"
+								},
+								{
+									"key": "codigo_postal",
+									"value": "2000"
+								},
+								{
+									"key": "es_0km",
+									"value": "0",
+									"description": "0/1"
+								},
+								{
+									"key": "fecha_nacimiento",
+									"value": "1980-01-01"
+								},
+								{
+									"key": "is_moto",
+									"value": "0",
+									"description": "0/1"
+								},
+								{
+									"key": "origen",
+									"value": "powermarket"
+								},
+								{
+									"key": "provincia",
+									"value": "1",
+									"description": "/datos generales/provincias"
+								},
+								{
+									"key": "sexo",
+									"value": "MALE",
+									"description": "MALE/FEMALE/JURIDIC"
+								},
+								{
+									"key": "suma_asegurada",
+									"value": "0",
+									"description": "0: default en compañia"
+								},
+								{
+									"key": "tipo_uso",
+									"value": "1",
+									"description": "1: Particular, 2: Comercial"
+								},
+								{
+									"key": "year",
+									"value": "2016",
+									"description": "API infoauto"
+								},
+								{
+									"key": "infoauto_id",
+									"value": "0450246",
+									"description": "API infoauto"
+								},
+								{
+									"key": "producer_profile_id",
+									"value": "1381",
+									"description": "fijo"
+								},
+								{
+									"key": "producer_id",
+									"value": "932",
+									"description": "fijo"
+								},
+								{
+									"key": "integrity_alarma",
+									"value": "NO"
+								},
+								{
+									"key": "integrity_asistencia",
+									"value": "0",
+									"description": "0: no, 1:si"
+								},
+								{
+									"key": "integrity_clausula_ajuste",
+									"value": "1"
+								},
+								{
+									"key": "integrity_comision",
+									"value": "0029",
+									"description": "{\n          id: '0029',\n          value: '0%'\n        },\n        {\n          id: '0021',\n          value: '9,5%'\n        },\n        {\n          id: '0018',\n          value: '13%'\n        },\n        {\n          id: '0016',\n          value: '15,5%'\n        },\n        {\n          id: '0014',\n          value: '18%'\n        }"
+								},
+								{
+									"key": "integrity_cuotas",
+									"value": "3"
+								},
+								{
+									"key": "integrity_forma_pago",
+									"value": "1004"
+								},
+								{
+									"key": "integrity_garage",
+									"value": "NO"
+								},
+								{
+									"key": "integrity_localidad",
+									"value": "001368"
+								},
+								{
+									"key": "integrity_porc_dto",
+									"value": "0"
+								},
+								{
+									"key": "integrity_uso_social",
+									"value": "NO"
+								},
+								{
+									"key": "integrity_vigencia",
+									"value": "109",
+									"description": "[1, 'Anual'],\n            [2, 'Semestral'],\n            [3, 'Cuatrimestral'],\n            [4, 'Anual c/refa Cuatrimestral'],\n            [15, 'Trimestral'],\n            [109, 'Anual c/refa Trimestral']"
+								},
+								{
+									"key": "integrity_vlh",
+									"value": "NO"
+								},
+								{
+									"key": "integrity_adicionales",
+									"value": "%255B%255D",
+									"description": "fijo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "integrity_localidades",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{powermarket.token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{coti-host}}/api/adminse/integrity/localidades?codigo_postal=1778&provincia=1",
+							"host": [
+								"{{coti-host}}"
+							],
+							"path": [
+								"api",
+								"adminse",
+								"integrity",
+								"localidades"
+							],
+							"query": [
+								{
+									"key": "codigo_postal",
+									"value": "1778"
+								},
+								{
+									"key": "provincia",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

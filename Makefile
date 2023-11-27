@@ -29,10 +29,14 @@ lint: ## Run service linting.
 		$(CONTAINER_NAME) \
 		poetry run pylint /app/src
 
+.PHONY: run main script
+run:
+	docker run -v `pwd`:/app -it $(CONTAINER_NAME) /bin/bash -c "poetry run python /app/src/main.py"
+
 .PHONY: bash
-bash: ## Apply migrations.
+bash:
 	docker run -v `pwd`:/app -it $(CONTAINER_NAME) bash
 
-.PHONY: get docker pipenv
+.PHONY: get docker poetry env
 get-virtual-env: .
 	docker run -it $(CONTAINER_NAME) /bin/bash -c "poetry env info -p"

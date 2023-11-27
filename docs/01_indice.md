@@ -2,12 +2,12 @@
 
 ## Indice
 - [Descripción del proyecto](#descripción-del-proyecto)
-- UX/UI
-- Diagrama de flujo
-- Integraciones
-  - [Adminse](https://www.adminse.com.ar/)
-  - [Infoauto](https://www.infoauto.com.ar/)
-- Persistencia de datos
+- [UX/UI](#uxui-)
+- [Diagrama de flujo](#diagrama-de-flujo)
+- [Integraciones](#integraciones)
+  - [Adminse](#adminse)
+  - [Infoauto](#infoauto)
+- [Persistencia de datos](#persistencia-de-datos)
 
 ## Descripción del proyecto
 La idea de este proyecto es generar un cotizador de seguros de autos que se pueda brindar a los clientes por medio de un usuario.  
@@ -25,4 +25,25 @@ La idea es que luego de iniciarse sesión el cliente pueda entrar y realizar una
 En la vista de cotizaciones necesitará llenar unos datos, los cuales deberán contemplar los datos que todas las compañías necesitan, para luego poder ver un comparativo del precio de las mismas.
 
 ## Diagrama de flujo
-![flowchart](../flies/cotizador_flowchart.svg "Optional title")
+![flowchart](../flies/cotizador_flowchart.png)
+
+## Integraciones
+### Adminse
+[Página web](https://www.adminse.com.ar/)
+Contamos con una colección de postman que indica como utilizar los siguientes endpoints:
+- Login POST https://{{coti-host}}/api/auth/login
+- Provincias GET https://adminse.com.ar/api/provinces
+- Localidades GET https://adminse.com.ar/api/provinces/2/locations
+- Allianz GET https://{{coti-host}}/api/cotizador?
+- Integrity GET https://{{coti-host}}/api/cotizador?cia=integrity
+
+Estos últimos dos contienen todos los datos necesarios para cotizar en dichas compañías y, en caso de querer integrar más compañías habría que solicitar la colección de postman con todos los datos.
+
+### Infoauto
+[Página web](https://www.infoauto.com.ar/)
+En este caso no contamos con una colección de postman, habría que hacer el trabajo de discovery, no es mucho más que un loging y GET para traer los autos.
+La única particularidad de esta integración es que no se puede cashear la base de autos, ni nada por el estilo, hay que consumirla directamente en cada cotización.
+
+
+## Persistencia de datos
+En una primera instancia lo que se necesita es una manera de brindar acceso por medio de login a distintos clientes y poder guardar el número de cotización que devuelve Adminse para luego poder emitir la póliza con dicha cotización. 
